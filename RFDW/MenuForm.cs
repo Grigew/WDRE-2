@@ -10,24 +10,24 @@ namespace RFDW
 {
     public partial class MenuForm : Form
     {
-        private WaveOutEvent outputDevice;
-        private AudioFileReader audioFile;
+        //private WaveOutEvent outputDevice;
+        //private AudioFileReader audioFile;
         public MenuForm()
         {
             InitializeComponent();
 
             Console.Write("Это информация\nДЛЯ РОЗРОБОЧИКОВ!\nВсё равно не закрывайте консоль!!! (Игра крашнется)\n");
 
-            if (outputDevice == null)
-            {
-                outputDevice = new WaveOutEvent();
-            }
-            if (audioFile == null)
-            {
-                //audioFile = new AudioFileReader(@"C:\Users\8855\source\repos\RFDW\RFDW\Resources\Adventure.mp3");
-                //outputDevice.Init(audioFile);
-            }
-            //outputDevice.Play();
+            //if (outputDevice == null)
+            //{
+            //    outputDevice = new WaveOutEvent();
+            //}
+            //if (audioFile == null)
+            //{
+            //    //audioFile = new AudioFileReader(@"C:\Users\8855\source\repos\RFDW\RFDW\Resources\Adventure.mp3");
+            //    //outputDevice.Init(audioFile);
+            //}
+            ////outputDevice.Play();
         }
         SettingsForm settFrm = new();
 
@@ -64,6 +64,13 @@ namespace RFDW
             EditorForm edtrFrm = new();
             //Dispose(false);
             edtrFrm.Show();
+        }
+
+        private void buttonConsole_Click(object sender, EventArgs e)
+        {
+            GameForm2 testFrm = new();
+            Dispose(false);
+            testFrm.Show();
         }
     }
 }

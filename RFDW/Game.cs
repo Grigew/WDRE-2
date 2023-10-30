@@ -18,8 +18,8 @@ namespace RFDW
         // Objects massive
         public static List<GameObject> sbj = new List<GameObject>(); // All objects massive | [class, id] | 0 - creatures, 1 - walls, 2 - Floors , 3 - Water etc 
         public static int sbj_h = 2; // obj height
-        public static int sbj_w = Map.map1.Length/sbj_h; // obj width
-        public static int sbj_s = Map.map1.Length; // obj size
+        public static int sbj_w = Map.Map1.Length/sbj_h; // obj width
+        public static int sbj_s = Map.Map1.Length; // obj size
 
         // Other
 

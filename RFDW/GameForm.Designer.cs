@@ -32,7 +32,7 @@ namespace RFDW
         {
             components = new System.ComponentModel.Container();
             labelHp = new Label();
-            rndr_tmr = new System.Windows.Forms.Timer(components);
+            render_update_timer = new System.Windows.Forms.Timer(components);
             buttonNoclip = new Button();
             layer2 = new Label();
             layer3 = new Label();
@@ -41,6 +41,10 @@ namespace RFDW
             layer6 = new Label();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
+            physics_update_timer = new System.Windows.Forms.Timer(components);
+            plr_lbl = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // labelHp
@@ -54,11 +58,11 @@ namespace RFDW
             labelHp.TabIndex = 3;
             labelHp.Text = "♥♥♥♥♥";
             // 
-            // rndr_tmr
+            // render_update_timer
             // 
-            rndr_tmr.Enabled = true;
-            rndr_tmr.Interval = 10;
-            rndr_tmr.Tick += rndr_tmr_Tick;
+            render_update_timer.Enabled = true;
+            render_update_timer.Interval = 10;
+            render_update_timer.Tick += rndr_tmr_Tick;
             // 
             // buttonNoclip
             // 
@@ -139,7 +143,7 @@ namespace RFDW
             textBox1.BorderStyle = BorderStyle.FixedSingle;
             textBox1.Font = new Font("Cascadia Code Light", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             textBox1.ForeColor = Color.WhiteSmoke;
-            textBox1.Location = new Point(397, 9);
+            textBox1.Location = new Point(673, 245);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
@@ -167,12 +171,38 @@ namespace RFDW
             textBox2.UseSystemPasswordChar = true;
             textBox2.WordWrap = false;
             // 
+            // physics_update_timer
+            // 
+            physics_update_timer.Enabled = true;
+            physics_update_timer.Interval = 1;
+            physics_update_timer.Tick += physics_update_timer_Tick;
+            // 
+            // plr_lbl
+            // 
+            plr_lbl.AutoSize = true;
+            plr_lbl.Location = new Point(299, 245);
+            plr_lbl.Name = "plr_lbl";
+            plr_lbl.Size = new Size(38, 15);
+            plr_lbl.TabIndex = 13;
+            plr_lbl.Text = "label1";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(314, 80);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(339, 50);
+            pictureBox1.TabIndex = 14;
+            pictureBox1.TabStop = false;
+            pictureBox1.Paint += pictureBox1_Paint;
+            // 
             // GameForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(1119, 552);
+            Controls.Add(pictureBox1);
+            Controls.Add(plr_lbl);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(layer6);
@@ -189,13 +219,14 @@ namespace RFDW
             Name = "GameForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "GameForm";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private Label labelHp;
-        private System.Windows.Forms.Timer rndr_tmr;
+        private System.Windows.Forms.Timer render_update_timer;
         private Button buttonNoclip;
         private Label layer2;
         private Label layer3;
@@ -204,5 +235,8 @@ namespace RFDW
         private Label layer6;
         private TextBox textBox1;
         private TextBox textBox2;
+        private System.Windows.Forms.Timer physics_update_timer;
+        private Label plr_lbl;
+        private PictureBox pictureBox1;
     }
 }

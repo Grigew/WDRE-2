@@ -25,7 +25,7 @@ namespace RFDW
             {
                 for (int j = 0; j < dataGridView1.ColumnCount; j++)
                 {
-                    Map.map1[(int)numericUpDown1.Value, i, j] = Convert.ToString(dataGridView1.Rows[i].Cells[j].Value);
+                    Map.Map1[(int)numericUpDown1.Value, i, j] = Convert.ToString(dataGridView1.Rows[i].Cells[j].Value);
                 }
             }
         }
@@ -35,22 +35,22 @@ namespace RFDW
             int z = (int)numericUpDown1.Value;
 
             DataTable table = new DataTable();
-            for (int k = 0; k < Map.map1.GetLength(2); k++)
+            for (int k = 0; k < Map.Map1.GetLength(2); k++)
             {
                 table.Rows.Add(Convert.ToString(k));
             }
 
-            for (int j = 0; j < Map.map1.GetLength(1); j++)
+            for (int j = 0; j < Map.Map1.GetLength(1); j++)
             {
                 table.Columns.Add(Convert.ToString(j));
                 Console.WriteLine("Col {0}", j);
                 
-                for (int k = 0; k < Map.map1.GetLength(2); k++)
+                for (int k = 0; k < Map.Map1.GetLength(2); k++)
                 {
                     
                     DataRow row = table.Rows[j];
 
-                    row[k] = Map.map1[z, j, k];
+                    row[k] = Map.Map1[z, j, k];
 
                     Console.WriteLine("Row {0} {1}", j, k);
                 }
@@ -72,7 +72,7 @@ namespace RFDW
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             if (numericUpDown1.Value < 0) numericUpDown1.Value = 1;
-            else if (numericUpDown1.Value > Map.map1.GetLength(0)-1) numericUpDown1.Value = Map.map1.GetLength(0)-1;
+            else if (numericUpDown1.Value > Map.Map1.GetLength(0)-1) numericUpDown1.Value = Map.Map1.GetLength(0)-1;
             else build();
         }
     }

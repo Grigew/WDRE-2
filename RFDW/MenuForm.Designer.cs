@@ -174,6 +174,7 @@
             buttonConsole.Text = "</>";
             buttonConsole.TextAlign = ContentAlignment.MiddleRight;
             buttonConsole.UseVisualStyleBackColor = false;
+            buttonConsole.Click += buttonConsole_Click;
             // 
             // buttonEditor
             // 
